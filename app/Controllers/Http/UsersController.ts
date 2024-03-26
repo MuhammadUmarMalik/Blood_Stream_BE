@@ -3,6 +3,9 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 import User from 'App/Models/User';
 import { Createvalidations,Updatevalidations } from 'App/Validators/UserValidator';
 import Hash from '@ioc:Adonis/Core/Hash'
+// import { DateTime } from 'luxon';
+import axios from 'axios';
+
 
 export default class UserController {
   public async index({ response }: HttpContextContract) {
@@ -14,17 +17,61 @@ export default class UserController {
     }
   }
 
-  public async show({ params, response }: HttpContextContract) {
+  public async show({ request, response }: HttpContextContract) {
+    // try {
+    //   // const user = await User.find(params.blood_group);
+    //   const user= await User.query().from('users').where('blood_group',params.blood_group)
+    //   console.log("user-======>",user)
+    //   return response.send(user);
+    // } catch (error) {
+    //   console.log(error)
+    //   return response.send({error});
+    // }
     try {
-      // const user = await User.find(params.blood_group);
-      const user= await User.query().from('users').where('blood_group',params.blood_group)
-      // console.log("user-======>",user)
-      return response.send(user);
+      const { location, bloodGroup } = request.only(['location', 'bloodGroup']);
+
+      // Convert location text to latitude and longitude using Nominatim API
+      const locationResponse = await axios.get('https://nominatim.openstreetmap.org/search', {
+        params: {
+          q: location,
+          format: 'json',
+          limit: 1,
+        },
+      });
+
+      if (locationResponse.data.length === 0) {
+        return response.status(404).json({ error: 'Location not found' });
+      }
+
+      const { lat, lon } = locationResponse.data[0];
+
+      // Query users within 3km radius using Overpass API
+      const overpassResponse = await axios.get('https://lz4.overpass-api.de/api/interpreter', {
+        params: {
+          data: `[out:json];
+                  (
+                    node(around:${lat},${lon},3000)["blood_group"="${bloodGroup}"];
+                    way(around:${lat},${lon},3000)["blood_group"="${bloodGroup}"];
+                    rel(around:${lat},${lon},3000)["blood_group"="${bloodGroup}"];
+                  );
+                  out;`,
+        },
+      });
+
+      const users = overpassResponse.data.elements.map(element => ({
+        id: element.id,
+        latitude: element.lat,
+        longitude: element.lon,
+        bloodGroup: element.tags.blood_group,
+      }));
+
+      return response.json(users);
     } catch (error) {
-      console.log(error)
-      return response.send({error});
+      console.error('Error occurred while finding users:', error);
+      return response.status(500).json({ error: 'Internal server error' });
     }
   }
+  
 // store the new user data in db
   public async store({ request, response }: HttpContextContract) {
     try {
@@ -35,11 +82,11 @@ export default class UserController {
         'phone_number',
         'address',
         'city',
-        'enable_request',
         'donation_date',
-        'password'
+        'password',
+        'user_status',
       ]);
-      console.log('user------->',request)
+      
       const user = await User.create(userData);
       return response.created(user);
     } catch (error) {
@@ -59,8 +106,6 @@ export default class UserController {
         'phone_number',
         'address',
         'city',
-        'enable_request',
-        
       ]);
       const updateData= user.merge(userData);
       await updateData.save();

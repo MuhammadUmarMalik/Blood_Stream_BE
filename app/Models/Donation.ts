@@ -12,6 +12,7 @@ export default class Donation extends BaseModel {
   @belongsTo(() => User, {
     foreignKey: 'recipient_id',
   })
+  
   public recipient: BelongsTo<typeof User>;
 
   @column({ isPrimary: true })
@@ -22,6 +23,9 @@ export default class Donation extends BaseModel {
 
   @column()
   public donor_id: number;
+
+  @column()
+  public donate_count:number;
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime;

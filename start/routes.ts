@@ -67,7 +67,7 @@ Route.get("/logout", "UsersController.logout");
 //user endpoint
 Route.group(() => {
   Route.get("/", "UsersController.index");
-  Route.get("/:blood_group", "UsersController.show");
+  Route.get("/blood-group", "UsersController.show");
   Route.get("/:id", "UsersController.show");
   // Route.post("/users", "UsersController.store");
   Route.put("/:id", "UsersController.update");
@@ -80,7 +80,7 @@ Route.group(() => {
   // Donations endpoint
 
   Route.post("/:param", "DonationsController.create");
-  Route.delete("/", "DonationsController.index");
+  Route.get("/", "DonationsController.index");
   // donations endpoints
  
 }).prefix("donations")

@@ -8,7 +8,6 @@ export default class extends BaseSchema {
       table.increments('id').primary()
       table.integer('user_id').unsigned().references('id').inTable('users').notNullable()
       table.integer('donor_id').unsigned().references('id').inTable('users').notNullable()
-      table.dateTime("donation_date");
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
     })

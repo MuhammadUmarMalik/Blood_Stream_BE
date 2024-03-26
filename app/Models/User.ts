@@ -32,14 +32,17 @@ export default class User extends BaseModel {
   public city: string;
  
   @column()
-  public enable_request: boolean;
-
+  public user_status: Boolean;
 
   @column({ serializeAs: null })
   public password: string;
 
   @column()
+  public donationCount:number;
+  @column()
   public profile_picture: string;
+  @column()
+  public lastDonationDate:Date;
 
   @beforeSave()
   public static async hashPassword(user: User) {

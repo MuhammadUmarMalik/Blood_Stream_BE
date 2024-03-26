@@ -12,10 +12,11 @@ export default class extends BaseSchema {
       table.string("phone_number", 255).notNullable().unique();
       table.string("address", 255);
       table.string("city", 255);
-      table.boolean("enable_request");
+      table.boolean("user_status");
       table.string('password',255);
+      table.integer('donationCount');
       table.string("profile_picture");
-
+      table.timestamp('lastDonationDate');
       /**
        * Uses timestampz for PostgreSQL and DATETIME2 for MSSQL
        */
