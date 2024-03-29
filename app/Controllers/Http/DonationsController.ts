@@ -1,5 +1,5 @@
 import Donation from "App/Models/Donation";
-// import User from "App/Models/User";
+import User from "App/Models/User";
 export default class DonationController {
   // get all the donations
   public async index({ response }) {
@@ -23,20 +23,17 @@ export default class DonationController {
         donation.donor_id = donor_id;
         
         await donation.save();
-         // Update donor's donation count in the users table
-        //  const id= donor_id;
-         
-        //  const donor = await User.findOrFail(id);
-        //   // Increment donation count
-        //   donor.donationCount +=1;
-        //  donor.lastDonationDate=new Date();
-        //  donor.user_status=false;
-        //  donor.merge(request.only(donor.donationCount,donor.lastDonationDate,donor.user_status)).save();
-        //  console.log(donor.save());
-        // donor.save();
-        // await Database.from('users').where('id',donor_id).update({ User.donationCount, lastDonationDate,user_status });
-        // await User.query().where('id',donor_id).update({donationCount:'donationCount+1'})
-
+         // Update user records based on donor_id
+         const user = await User.findBy('id', donor_id);
+         if (user) {
+           // Update donation count
+           user.donation_count = user.donation_count ? user.donation_count + 1 : 1;
+           // Update last donation date
+           user.last_donation_date = new Date();
+           // Update user status, you need to define the logic for this
+           user.user_status = "Disable"; // For example, assuming status needs to be set as 'active'
+           await user.save();
+           return response.send('Donor accepted your request. User records updated successfully.',user);}
         response.send('donor accept your request',donation,);
         
       }

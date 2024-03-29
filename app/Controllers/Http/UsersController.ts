@@ -5,7 +5,8 @@ import { Createvalidations,Updatevalidations } from 'App/Validators/UserValidato
 import Hash from '@ioc:Adonis/Core/Hash'
 // import { DateTime } from 'luxon';
 import axios from 'axios';
-
+import * as geolib from 'geolib';
+import Database from '@ioc:Adonis/Lucid/Database';
 
 export default class UserController {
   public async index({ response }: HttpContextContract) {
@@ -18,57 +19,37 @@ export default class UserController {
   }
 
   public async show({ request, response }: HttpContextContract) {
-    // try {
-    //   // const user = await User.find(params.blood_group);
-    //   const user= await User.query().from('users').where('blood_group',params.blood_group)
-    //   console.log("user-======>",user)
-    //   return response.send(user);
-    // } catch (error) {
-    //   console.log(error)
-    //   return response.send({error});
-    // }
     try {
-      const { location, bloodGroup } = request.only(['location', 'bloodGroup']);
+      const { blood_group, location } = request.qs();
 
       // Convert location text to latitude and longitude using Nominatim API
-      const locationResponse = await axios.get('https://nominatim.openstreetmap.org/search', {
+      const nominatimResponse = await axios.get('https://nominatim.openstreetmap.org/search', {
         params: {
           q: location,
           format: 'json',
-          limit: 1,
         },
       });
 
-      if (locationResponse.data.length === 0) {
-        return response.status(404).json({ error: 'Location not found' });
+      if (!nominatimResponse.data || nominatimResponse.data.length === 0) {
+        return response.status(404).send({ error: 'Location not found.' });
       }
 
-      const { lat, lon } = locationResponse.data[0];
+      const { lat, lon } = nominatimResponse.data[0];
 
-      // Query users within 3km radius using Overpass API
-      const overpassResponse = await axios.get('https://lz4.overpass-api.de/api/interpreter', {
-        params: {
-          data: `[out:json];
-                  (
-                    node(around:${lat},${lon},3000)["blood_group"="${bloodGroup}"];
-                    way(around:${lat},${lon},3000)["blood_group"="${bloodGroup}"];
-                    rel(around:${lat},${lon},3000)["blood_group"="${bloodGroup}"];
-                  );
-                  out;`,
-        },
-      });
-
-      const users = overpassResponse.data.elements.map(element => ({
-        id: element.id,
-        latitude: element.lat,
-        longitude: element.lon,
-        bloodGroup: element.tags.blood_group,
-      }));
-
-      return response.json(users);
+      // Query users within a 3km radius from the searched location
+      const users = await Database.query()
+        .select('*')
+        .from('users')
+        .whereRaw(
+          `ST_Distance_Sphere(location, ST_GeomFromText('POINT(${lon} ${lat})')) / 1000 <= 3`
+        )
+        .where('blood_group', blood_group)
+        .where('user_status', 'active');
+          console.log(users)
+      return response.ok(users);
     } catch (error) {
-      console.error('Error occurred while finding users:', error);
-      return response.status(500).json({ error: 'Internal server error' });
+      console.error(error);
+      return response.status(500).send({ error: 'An error occurred while searching for users.' });
     }
   }
   
@@ -78,13 +59,15 @@ export default class UserController {
       await request.validate({ schema: Createvalidations });
       const userData = request.only([
         'name',
+        'geneder',
         'blood_group',
         'phone_number',
         'address',
         'city',
-        'donation_date',
+        'last_donation_date',
         'password',
         'user_status',
+        'donation_count'
       ]);
       
       const user = await User.create(userData);
@@ -100,12 +83,15 @@ export default class UserController {
       const user = await User.findOrFail(params.id);
       const userData = request.only([ 
         'name',
-        'email',
-        'gender',
+        'geneder',
         'blood_group',
         'phone_number',
         'address',
         'city',
+        'last_donation_date',
+        'password',
+        'user_status',
+        'donation_count'
       ]);
       const updateData= user.merge(userData);
       await updateData.save();
