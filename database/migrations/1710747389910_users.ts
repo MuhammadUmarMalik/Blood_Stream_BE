@@ -17,6 +17,8 @@ export default class extends BaseSchema {
       table.integer('donation_count').defaultTo(0);
       table.string("profile_picture");
       table.timestamp('last_donation_date');
+      table.double('latitude');
+      table.double('longitude')
       /**
        * Uses timestampz for PostgreSQL and DATETIME2 for MSSQL
        */

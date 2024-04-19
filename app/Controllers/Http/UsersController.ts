@@ -3,9 +3,7 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 import User from 'App/Models/User';
 import { Createvalidations,Updatevalidations } from 'App/Validators/UserValidator';
 import Hash from '@ioc:Adonis/Core/Hash'
-// import { DateTime } from 'luxon';
 import axios from 'axios';
-import * as geolib from 'geolib';
 import Database from '@ioc:Adonis/Lucid/Database';
 
 export default class UserController {
@@ -18,41 +16,47 @@ export default class UserController {
     }
   }
 
-  public async show({ request, response }: HttpContextContract) {
+  public async getUsersWithinRadius({ response, selectedHospital, blood_group }) {
     try {
-      const { blood_group, location } = request.qs();
-
-      // Convert location text to latitude and longitude using Nominatim API
+      // Retrieve the coordinates of the selected hospital from its address using OpenStreetMap
       const nominatimResponse = await axios.get('https://nominatim.openstreetmap.org/search', {
         params: {
-          q: location,
+          q: selectedHospital,
           format: 'json',
         },
       });
-
+  
       if (!nominatimResponse.data || nominatimResponse.data.length === 0) {
-        return response.status(404).send({ error: 'Location not found.' });
+        return response.status(404).send({ error: 'Hospital location not found.' });
       }
-
+  
       const { lat, lon } = nominatimResponse.data[0];
-
-      // Query users within a 3km radius from the searched location
+  
+      // Create a circular boundary around the hospital with a radius of 3km
+      const radius = 3; // in kilometers
+      const boundary = `ST_Buffer(ST_GeomFromText('POINT(${lon} ${lat})'), ${radius * 1000})`;
+  
+      // Query the database for users within the boundary and with the specified blood group
       const users = await Database.query()
         .select('*')
         .from('users')
-        .whereRaw(
-          `ST_Distance_Sphere(location, ST_GeomFromText('POINT(${lon} ${lat})')) / 1000 <= 3`
-        )
+        .whereRaw(`ST_Within(location, ${boundary})`)
         .where('blood_group', blood_group)
         .where('user_status', 'active');
-          console.log(users)
+  
       return response.ok(users);
     } catch (error) {
-      console.error(error);
+      console.error('error------>',error);
       return response.status(500).send({ error: 'An error occurred while searching for users.' });
     }
   }
+
   
+  public async show({ request, response }: HttpContextContract) {
+   
+    const { selectedHospital, blood_group } = request.qs();
+  await this.getUsersWithinRadius({ response, selectedHospital, blood_group });
+  }
 // store the new user data in db
   public async store({ request, response }: HttpContextContract) {
     try {
@@ -67,9 +71,28 @@ export default class UserController {
         'last_donation_date',
         'password',
         'user_status',
-        'donation_count'
+        'donation_count',
+        'latitude',
+        'longitude'
       ]);
-      
+
+         // Call the Nominatim API to convert address to coordinates
+    const nominatimResponse = await axios.get(`https://nominatim.openstreetmap.org/search`, {
+      params: {
+        q: userData.address,
+        format: 'json',
+        limit: 1
+      }
+    });
+    console.log('nominatimResponse----------',nominatimResponse)
+
+    // Extract latitude and longitude from the Nominatim response
+    const { lat, lon } = nominatimResponse.data[0];
+
+    // Add latitude and longitude to the user data 03185888962
+    userData.latitude=lat;
+    userData.longitude=lon;
+    
       const user = await User.create(userData);
       return response.created(user);
     } catch (error) {

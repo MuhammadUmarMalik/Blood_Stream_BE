@@ -44,6 +44,10 @@ export default class User extends BaseModel {
   @column()
   public last_donation_date:Date;
 
+  @column()
+  public latitude:number;
+  @column() 
+  public longitude:number;
   @beforeSave()
   public static async hashPassword(user: User) {
     if (user.$dirty.password) {

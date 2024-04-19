@@ -67,7 +67,7 @@ Route.get("/logout", "UsersController.logout");
 //user endpoint
 Route.group(() => {
   Route.get("/", "UsersController.index");
-  Route.get("/blood-group", "UsersController.show");
+  Route.get("?", "UsersController.show");
   Route.get("/:id", "UsersController.show");
   // Route.post("/users", "UsersController.store");
   Route.put("/:id", "UsersController.update");

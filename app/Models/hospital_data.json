@@ -1,0 +1,700 @@
+﻿{
+    "HospitalData": [
+        {
+            "Id": 1,
+            "Address": "THQ Chowk Azam",
+            "Latitude": 30.9647025,
+            "Longitude": 71.2042619
+        },
+        {
+            "Id": 2,
+            "Address": "Al-Mustafa Surgical Hospital",
+            "Latitude": 30.9657927,
+            "Longitude": 71.1998011
+        },
+        {
+            "Id": 3,
+            "Address": "Gulzar children and family Hospital, Chowk Azam",
+            "Latitude": 30.9726249,
+            "Longitude": 71.2089538
+        },
+        {
+            "Id": 4,
+            "Address": "Al Mustafa Surgical Hospital",
+            "Latitude": 30.9657927,
+            "Longitude": 71.1998011
+        },
+        {
+            "Id": 5,
+            "Address": "Mian Hospital & Medical Complex",
+            "Latitude": 30.9657707,
+            "Longitude": 71.1971164
+        },
+        {
+            "Id": 6,
+            "Address": "Haleema Medicare Centre,Chowk Azam",
+            "Latitude": 30.9660143,
+            "Longitude": 71.2119178
+        },
+        {
+            "Id": 7,
+            "Address": "Malik Asad's Hospital",
+            "Latitude": 30.965864,
+            "Longitude": 71.199823
+        },
+        {
+            "Id": 8,
+            "Address": "Sarayya Childran Clinac",
+            "Latitude": 30.9650963,
+            "Longitude": 71.204459
+        },
+        {
+            "Id": 9,
+            "Address": "Saif Medecal Stor",
+            "Latitude": 30.9631875,
+            "Longitude": 71.2121875
+        },
+        {
+            "Id": 10,
+            "Address": "Doctors Medical Complex ,Chowk Azam",
+            "Latitude": 30.9602144,
+            "Longitude": 71.2238237
+        },
+        {
+            "Id": 11,
+            "Address": "Rasheed Memorial hospital ,Chowk azam",
+            "Latitude": 30.9639135,
+            "Longitude": 71.2063463
+        },
+        {
+            "Id": 12,
+            "Address": "Services Hospital",
+            "Latitude": "",
+            "Longitude": ""
+        },
+        {
+            "Id": 13,
+            "Address": "District Headquarters Hospital",
+            "Latitude": 33.6131457,
+            "Longitude": 73.0537988
+        },
+        {
+            "Id": 14,
+            "Address": "Layyah City Hospital",
+            "Latitude": 30.9600628,
+            "Longitude": 70.9609305
+        },
+        {
+            "Id": 15,
+            "Address": "Qadir Ali Hospital",
+            "Latitude": 30.9711693,
+            "Longitude": 70.9627506
+        },
+        {
+            "Id": 16,
+            "Address": "Al khidmat maternity hospital layyah",
+            "Latitude": 30.9708158,
+            "Longitude": 70.9651687
+        },
+        {
+            "Id": 17,
+            "Address": "Nadir Hospital Layyah",
+            "Latitude": 30.9760729,
+            "Longitude": 70.942107
+        },
+        {
+            "Id": 18,
+            "Address": "THQ Level Hospital",
+            "Latitude": 30.9535426,
+            "Longitude": 71.2138081
+        },
+        {
+            "Id": 19,
+            "Address": "Sumraa Hospital Layyah",
+            "Latitude": 30.9670683,
+            "Longitude": 70.9851382
+        },
+        {
+            "Id": 20,
+            "Address": "Tayyab Hospital Layyah",
+            "Latitude": 30.9842347,
+            "Longitude": 70.9438306
+        },
+        {
+            "Id": 21,
+            "Address": "THQ Thal Hospital",
+            "Latitude": 30.9554376,
+            "Longitude": 70.9394528
+        },
+        {
+            "Id": 22,
+            "Address": "Al Khaliq Hospital Layyah",
+            "Latitude": 30.9718526,
+            "Longitude": 70.9590378
+        },
+        {
+            "Id": 23,
+            "Address": "Ghazi Hospital Layyah",
+            "Latitude": 30.9717512,
+            "Longitude": 70.9519222
+        },
+        {
+            "Id": 24,
+            "Address": "149ATDA LAYYAH",
+            "Latitude": 30.8816642,
+            "Longitude": 70.9675829
+        },
+        {
+            "Id": 25,
+            "Address": "Children Hospital Layyah",
+            "Latitude": 30.9726412,
+            "Longitude": 70.9538893
+        },
+        {
+            "Id": 26,
+            "Address": "EPI Center DHQ Hospital layyah",
+            "Latitude": 30.9725071,
+            "Longitude": 70.9562635
+        },
+        {
+            "Id": 27,
+            "Address": "Al Asar hospital Layyah",
+            "Latitude": 30.9732016,
+            "Longitude": 70.9576888
+        },
+        {
+            "Id": 28,
+            "Address": "Sirati Hospital Layyah",
+            "Latitude": 30.9553976,
+            "Longitude": 70.9389387
+        },
+        {
+            "Id": 29,
+            "Address": "Social Security Medical Centre Layyah",
+            "Latitude": 30.9709914,
+            "Longitude": 70.964321
+        },
+        {
+            "Id": 30,
+            "Address": "Sirati Hospital Pvt ltd Layyah",
+            "Latitude": 30.9582782,
+            "Longitude": 70.9603815
+        },
+        {
+            "Id": 31,
+            "Address": "Garwan hospital",
+            "Latitude": 30.9644747,
+            "Longitude": 70.962445
+        },
+        {
+            "Id": 32,
+            "Address": "Layyah Veterniry Hospital",
+            "Latitude": 30.9693492,
+            "Longitude": 70.9427914
+        },
+        {
+            "Id": 33,
+            "Address": "EPI Center THQ Thal MNS Hospital Layyah",
+            "Latitude": 30.9553678,
+            "Longitude": 70.9395291
+        },
+        {
+            "Id": 34,
+            "Address": "Orthopadic Ward Dhq Layyah",
+            "Latitude": 30.9712664,
+            "Longitude": 70.9567506
+        },
+        {
+            "Id": 35,
+            "Address": "Tasleem Ortho Hospital Layyah",
+            "Latitude": 30.9658532,
+            "Longitude": 70.9363329
+        },
+        {
+            "Id": 36,
+            "Address": "صراطی ہسپتال",
+            "Latitude": 30.9532509,
+            "Longitude": 70.9601926
+        },
+        {
+            "Id": 37,
+            "Address": "Aziz Memorial Clinic",
+            "Latitude": 30.9709014,
+            "Longitude": 70.9517039
+        },
+        {
+            "Id": 38,
+            "Address": "Nasreen Saleem Medical Complex Layyah",
+            "Latitude": 30.941968,
+            "Longitude": 70.9427485
+        },
+        {
+            "Id": 39,
+            "Address": "DHQ HOSPITAL LAYYAH",
+            "Latitude": 30.9712664,
+            "Longitude": 70.9567506
+        },
+        {
+            "Id": 40,
+            "Address": "Sughra Rehman Trust Hospital",
+            "Latitude": 30.9548292,
+            "Longitude": 70.9369134
+        },
+        {
+            "Id": 41,
+            "Address": "Fatima Children Hospital",
+            "Latitude": 30.9596168,
+            "Longitude": 70.93625
+        },
+        {
+            "Id": 42,
+            "Address": "Serati hospital",
+            "Latitude": 30.9586114,
+            "Longitude": 70.9596447
+        },
+        {
+            "Id": 43,
+            "Address": "Ali Hospital Layyah dr Ali Hassan shah",
+            "Latitude": 30.9710204,
+            "Longitude": 70.9620519
+        },
+        {
+            "Id": 44,
+            "Address": "IDAP Mother & Child Hospital Layyah",
+            "Latitude": 30.9893329,
+            "Longitude": 70.9595535
+        },
+        {
+            "Id": 45,
+            "Address": "AAS Layyah Office and Sughra Free Hospital Layyah",
+            "Latitude": 30.9570192,
+            "Longitude": 70.9365234
+        },
+        {
+            "Id": 46,
+            "Address": "Al-Shafi Chest Care Hospital, Multan Road, Chowk Azam, Layyah",
+            "Latitude": 30.9566158,
+            "Longitude": 71.2140638
+        },
+        {
+            "Id": 47,
+            "Address": "Al Mustafa Surgical Hospital",
+            "Latitude": 30.9657927,
+            "Longitude": 71.1998011
+        },
+        {
+            "Id": 48,
+            "Address": "Layyah cardiac center and general hospital",
+            "Latitude": 30.9653173,
+            "Longitude": 70.9682733
+        },
+        {
+            "Id": 49,
+            "Address": "zeenat surgical hospital",
+            "Latitude": 30.9672576,
+            "Longitude": 70.9677917
+        },
+        {
+            "Id": 50,
+            "Address": "C.T Scan Center(Eastern Medical) Layyah/DHQ Hospital Layyah",
+            "Latitude": 30.9727314,
+            "Longitude": 70.9566947
+        },
+        {
+            "Id": 51,
+            "Address": "Sadri Foundation Hospital",
+            "Latitude": 30.9612646,
+            "Longitude": 71.2207521
+        },
+        {
+            "Id": 52,
+            "Address": "Dr. Khadim Hospital",
+            "Latitude": 30.9741524,
+            "Longitude": 70.9399461
+        },
+        {
+            "Id": 53,
+            "Address": "Al-Shafay Hospital",
+            "Latitude": 31.1815375,
+            "Longitude": 71.2004522
+        },
+        {
+            "Id": 54,
+            "Address": "Dr. Mahr Ameer Muhammad Sumra",
+            "Latitude": 30.9670761,
+            "Longitude": 70.9851473
+        },
+        {
+            "Id": 55,
+            "Address": "بچوں کا کلینک ڈاکٹر ام سلمی حسین",
+            "Latitude": 30.9722526,
+            "Longitude": 70.9577911
+        },
+        {
+            "Id": 56,
+            "Address": "خواجہ فرید کلینک لیہ",
+            "Latitude": 30.9662585,
+            "Longitude": 70.9364931
+        },
+        {
+            "Id": 57,
+            "Address": "Khan Clinic Layyah",
+            "Latitude": 30.971283,
+            "Longitude": 70.9567506
+        },
+        {
+            "Id": 58,
+            "Address": "Maryam Children Hospital",
+            "Latitude": 30.9655909,
+            "Longitude": 70.9681859
+        },
+        {
+            "Id": 59,
+            "Address": "Social Security Dispensary Layyah",
+            "Latitude": 30.9707928,
+            "Longitude": 70.9639348
+        },
+        {
+            "Id": 60,
+            "Address": "Layyah Health Care Services",
+            "Latitude": 30.9687509,
+            "Longitude": 70.9568407
+        },
+        {
+            "Id": 61,
+            "Address": "Dr Kashif imran Bodla Children Specialist in layyah",
+            "Latitude": 30.9590156,
+            "Longitude": 70.9377067
+        },
+        {
+            "Id": 62,
+            "Address": "Naqash Hamza Maternity Home",
+            "Latitude": 30.9679202,
+            "Longitude": 71.216096
+        },
+        {
+            "Id": 63,
+            "Address": "Nawab Medicare Chowkazam Layyah",
+            "Latitude": 30.9647025,
+            "Longitude": 71.2042619
+        },
+        {
+            "Id": 64,
+            "Address": "Al. Rehman medi care",
+            "Latitude": 30.9676337,
+            "Longitude": 71.2147978
+        },
+        {
+            "Id": 65,
+            "Address": "لیہ ڈینٹل کلینک بالمقابل الحسیب بے بی شاپ نزد DHQ layyah",
+            "Latitude": 30.9693618,
+            "Longitude": 70.9427563
+        },
+        {
+            "Id": 66,
+            "Address": "EPI Center MCH Centre Layyah",
+            "Latitude": 30.9648459,
+            "Longitude": 70.9359634
+        },
+        {
+            "Id": 67,
+            "Address": "Tehsil Headquarter Hospital, Karor Lal-E-Son, Layyah",
+            "Latitude": 31.221723,
+            "Longitude": 70.9679249
+        },
+        {
+            "Id": 68,
+            "Address": "شکیل کلینک لیہ",
+            "Latitude": 30.9710153,
+            "Longitude": 70.9385214
+        },
+        {
+            "Id": 69,
+            "Address": "Saif Medecal Stor",
+            "Latitude": 30.9631875,
+            "Longitude": 71.2121875
+        },
+        {
+            "Id": 70,
+            "Address": "المدنی سرجیکل کلینک",
+            "Latitude": 30.9845831,
+            "Longitude": 70.943381
+        },
+        {
+            "Id": 71,
+            "Address": "Aasia iqbal memorial hospital",
+            "Latitude": 31.1676067,
+            "Longitude": 71.2102154
+        },
+        {
+            "Id": 72,
+            "Address": "Dr Abdul Manan Clinic",
+            "Latitude": 30.9693492,
+            "Longitude": 70.9427914
+        },
+        {
+            "Id": 73,
+            "Address": "Al Ahad pharmacy layyah",
+            "Latitude": 30.9661815,
+            "Longitude": 70.9499594
+        },
+        {
+            "Id": 74,
+            "Address": "Robina Memorial Hospital",
+            "Latitude": 31.4033825,
+            "Longitude": 73.1028055
+        },
+        {
+            "Id": 75,
+            "Address": "Azam Hospital",
+            "Latitude": 17.3648364,
+            "Longitude": 78.462675
+        },
+        {
+            "Id": 76,
+            "Address": "MCH Maternity Home",
+            "Latitude": 30.9649947,
+            "Longitude": 70.9360197
+        },
+        {
+            "Id": 77,
+            "Address": "Hospital Chak 126 TDA",
+            "Latitude": 31.0227197,
+            "Longitude": 71.0143023
+        },
+        {
+            "Id": 78,
+            "Address": "Dr. Asif Rehmani Clinic",
+            "Latitude": 30.9632775,
+            "Longitude": 71.2258106
+        },
+        {
+            "Id": 79,
+            "Address": "RHC PHAR PUR LAYYAH",
+            "Latitude": 30.6962966,
+            "Longitude": 70.9507394
+        },
+        {
+            "Id": 80,
+            "Address": "Layyah City Hospital",
+            "Latitude": 30.9600628,
+            "Longitude": 70.9609305
+        },
+        {
+            "Id": 81,
+            "Address": "Al khidmat maternity hospital layyah",
+            "Latitude": 30.9708158,
+            "Longitude": 70.9651687
+        },
+        {
+            "Id": 82,
+            "Address": "Qadir Ali Hospital",
+            "Latitude": 30.9711693,
+            "Longitude": 70.9627506
+        },
+        {
+            "Id": 83,
+            "Address": "Sumraa Hospital Layyah",
+            "Latitude": 30.9670683,
+            "Longitude": 70.9851382
+        },
+        {
+            "Id": 84,
+            "Address": "Nadir Hospital Layyah",
+            "Latitude": 30.9760729,
+            "Longitude": 70.942107
+        },
+        {
+            "Id": 85,
+            "Address": "Sumraa Hospital Layyah",
+            "Latitude": 30.9670683,
+            "Longitude": 70.9851382
+        },
+        {
+            "Id": 86,
+            "Address": "Al Khaliq Hospital Layyah",
+            "Latitude": 30.9718526,
+            "Longitude": 70.9590378
+        },
+        {
+            "Id": 87,
+            "Address": "THQ Thal Hospital",
+            "Latitude": 30.9554376,
+            "Longitude": 70.9394528
+        },
+        {
+            "Id": 88,
+            "Address": "Children Hospital Layyah",
+            "Latitude": 30.9726412,
+            "Longitude": 70.9538893
+        },
+        {
+            "Id": 89,
+            "Address": "Serati hospital",
+            "Latitude": 30.9586114,
+            "Longitude": 70.9596447
+        },
+        {
+            "Id": 90,
+            "Address": "Sumraa Hospital Layyah",
+            "Latitude": 30.9670683,
+            "Longitude": 70.9851382
+        },
+        {
+            "Id": 91,
+            "Address": "Serati hospital",
+            "Latitude": 30.9586114,
+            "Longitude": 70.9596447
+        },
+        {
+            "Id": 92,
+            "Address": "Aziz Memorial Clinic",
+            "Latitude": 30.9709014,
+            "Longitude": 70.9517039
+        },
+        {
+            "Id": 93,
+            "Address": "Fatima Children Hospital",
+            "Latitude": 30.9596168,
+            "Longitude": 70.93625
+        },
+        {
+            "Id": 94,
+            "Address": "Nasreen Saleem Medical Complex Layyah",
+            "Latitude": 30.941968,
+            "Longitude": 70.9427485
+        },
+        {
+            "Id": 95,
+            "Address": "zeenat surgical hospital",
+            "Latitude": 30.9672576,
+            "Longitude": 70.9677917
+        },
+        {
+            "Id": 96,
+            "Address": "C.T Scan Center(Eastern Medical) Layyah/DHQ Hospital Layyah",
+            "Latitude": 30.9727314,
+            "Longitude": 70.9566947
+        },
+        {
+            "Id": 97,
+            "Address": "خواجہ فرید کلینک لیہ",
+            "Latitude": 30.9662585,
+            "Longitude": 70.9364931
+        },
+        {
+            "Id": 98,
+            "Address": "شکیل کلینک لیہ",
+            "Latitude": 30.9710153,
+            "Longitude": 70.9385214
+        },
+        {
+            "Id": 99,
+            "Address": "Social Security Dispensary Layyah",
+            "Latitude": 30.9707928,
+            "Longitude": 70.9639348
+        },
+        {
+            "Id": 100,
+            "Address": "Sarish Maternity Home",
+            "Latitude": 30.9663356,
+            "Longitude": 70.9351641
+        },
+        {
+            "Id": 101,
+            "Address": "Mualla Clinic And Maternity Home",
+            "Latitude": 30.9648705,
+            "Longitude": 70.9372938
+        },
+        {
+            "Id": 102,
+            "Address": "MCH Maternity Home",
+            "Latitude": 30.9649947,
+            "Longitude": 70.9360197
+        },
+        {
+            "Id": 103,
+            "Address": "Munir Tibbi Clinic",
+            "Latitude": 30.9730812,
+            "Longitude": 70.9394992
+        },
+        {
+            "Id": 104,
+            "Address": "Dr. Muhammad Zafar Ehsan",
+            "Latitude": 30.9694371,
+            "Longitude": 70.9435352
+        },
+        {
+            "Id": 105,
+            "Address": "Umair Clinic Maternity Home",
+            "Latitude": 30.9672279,
+            "Longitude": 70.9354725
+        },
+        {
+            "Id": 106,
+            "Address": "Obia Clinic And Maternity Home",
+            "Latitude": 30.9588422,
+            "Longitude": 70.9428272
+        },
+        {
+            "Id": 107,
+            "Address": "Zeeshan Surgical Hospital",
+            "Latitude": 30.9484579,
+            "Longitude": 70.9376824
+        },
+        {
+            "Id": 108,
+            "Address": "Al Ahad pharmacy layyah",
+            "Latitude": 30.9661815,
+            "Longitude": 70.9499594
+        },
+        {
+            "Id": 109,
+            "Address": "Noor Hospital. Dr M. Naeem Javeed",
+            "Latitude": 30.9660047,
+            "Longitude": 70.9474092
+        },
+        {
+            "Id": 110,
+            "Address": "Medicare Diagnostic lab and polyclinic",
+            "Latitude": 30.9718512,
+            "Longitude": 70.9586743
+        },
+        {
+            "Id": 111,
+            "Address": "Rehmina Maternity Home",
+            "Latitude": 30.9712113,
+            "Longitude": 70.9374171
+        },
+        {
+            "Id": 112,
+            "Address": "Rehmina Maternity Home",
+            "Latitude": 30.9712113,
+            "Longitude": 70.9374171
+        },
+        {
+            "Id": 113,
+            "Address": "DHQ GYNY WARD",
+            "Latitude": 30.9723132,
+            "Longitude": 70.954533
+        },
+        {
+            "Id": 114,
+            "Address": "Khawaja Fareed Clinic",
+            "Latitude": 30.9662585,
+            "Longitude": 70.9364931
+        },
+        {
+            "Id": 115,
+            "Address": "Huzaifa Eye Hospital",
+            "Latitude": 30.9575456,
+            "Longitude": 70.9603755
+        },
+        {
+            "Id": 116,
+            "Address": "Kanwal Maternity Home",
+            "Latitude": 30.9717126,
+            "Longitude": 70.953548
+        }
+    ]
+}
