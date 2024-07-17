@@ -5,11 +5,11 @@ export default class Hospital extends BaseModel {
   @column({ isPrimary: true })
   public id: number
   @column()
-  public address:string
+  public Address:string
   @column()
-  public latitude:number
+  public Latitude:number
   @column()
-  public longitude:number
+  public Longitude:number
   
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

@@ -74,7 +74,7 @@ Route.group(() => {
   Route.delete("/:id", "UsersController.destroy");
   // donations endpoints
  
-}).prefix("users")
+}).prefix("user")
 
 Route.group(() => {
   // Donations endpoint
