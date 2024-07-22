@@ -35,15 +35,18 @@ export default class UserController {
       // Create a circular boundary around the hospital with a radius of 3km
       const radius = 3; // in kilometers
       const boundary = `ST_Buffer(ST_GeomFromText('POINT(${lon} ${lat})'), ${radius * 1000})`;
-  
+      console.log(boundary)
       // Query the database for users within the boundary and with the specified blood group
       const users = await Database.query()
         .select('*')
         .from('users')
         .whereRaw(`ST_Within(location, ${boundary})`)
         .where('blood_group', blood_group)
-        .where('user_status', 'active');
-  
+        .where('user_status', 'active')
+        console.log('user---------->',users)
+        if (users.length === 0) {
+          return response.status(404).send({ message: 'No users found within 3km radius.' });
+        }
       return response.ok(users);
     } catch (error) {
       console.error('error------>',error);
@@ -56,6 +59,7 @@ export default class UserController {
    
     const { selectedHospital, blood_group } = request.qs();
   await this.getUsersWithinRadius({ response, selectedHospital, blood_group });
+  console.log(await this.getUsersWithinRadius({ response, selectedHospital, blood_group }))
   }
 // store the new user data in db
   public async store({ request, response }: HttpContextContract) {
@@ -84,7 +88,7 @@ export default class UserController {
         limit: 1
       }
     });
-    console.log('nominatimResponse----------',nominatimResponse)
+    // console.log('nominatimResponse----------',nominatimResponse)
 
     // Extract latitude and longitude from the Nominatim response
     const { lat, lon } = nominatimResponse.data[0];
