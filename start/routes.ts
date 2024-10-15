@@ -18,23 +18,19 @@
 |
 */
 
-import Route from '@ioc:Adonis/Core/Route'
-import HealthCheck from '@ioc:Adonis/Core/HealthCheck'
+import Route from "@ioc:Adonis/Core/Route";
+import HealthCheck from "@ioc:Adonis/Core/HealthCheck";
 
-
-
-Route.get('/', async () => {
-  return { hello: 'world' }
-})
-
-
+Route.get("/", async () => {
+  return { hello: "world" };
+});
 
 // check db connection
-Route.get('health', async ({ response }) => {
-  const report = await HealthCheck.getReport()
+Route.get("health", async ({ response }) => {
+  const report = await HealthCheck.getReport();
 
-  return report.healthy ? response.ok(report) : response.badRequest(report)
-})
+  return report.healthy ? response.ok(report) : response.badRequest(report);
+});
 
 // Route.get('/users', async () => {
 //   return (// users endpoints
@@ -43,8 +39,7 @@ Route.get('health', async ({ response }) => {
 //   Route.post("/signin", "UsersController.login");
 //   Route.post("/signup", "UsersController.store");
 //   Route.get("/logout", "UsersController.logout");
-  
-  
+
 //     Route.get("/users", "UsersController.index");
 //     Route.get("/users/:blood_group", "UsersController.show");
 //     Route.get("/users/:id", "UsersController.show");
@@ -52,18 +47,17 @@ Route.get('health', async ({ response }) => {
 //     Route.put("/users/:id", "UsersController.update");
 //     Route.delete("/users/:id", "UsersController.destroy");
 //     // donations endpoints
-   
+
 //   }).prefix("api")
 //   )
 // })
 
 Route.group(() => {
   // login endpoint
-Route.post("/signin", "UsersController.login");
-Route.post("/signup", "UsersController.store");
-Route.get("/logout", "UsersController.logout");
- 
-}).prefix("auth")
+  Route.post("/signin", "UsersController.login");
+  Route.post("/signup", "UsersController.store");
+  Route.get("/logout", "UsersController.logout");
+}).prefix("auth");
 //user endpoint
 Route.group(() => {
   Route.get("/", "UsersController.index");
@@ -73,8 +67,7 @@ Route.group(() => {
   Route.put("/:id", "UsersController.update");
   Route.delete("/:id", "UsersController.destroy");
   // donations endpoints
- 
-}).prefix("user")
+}).prefix("user");
 
 Route.group(() => {
   // Donations endpoint
@@ -82,5 +75,13 @@ Route.group(() => {
   Route.post("/:param", "DonationsController.create");
   Route.get("/", "DonationsController.index");
   // donations endpoints
- 
-}).prefix("donations")
+}).prefix("donations");
+
+Route.group(() => {
+  Route.get("/", "PostsController.index");
+  Route.get("/:id", "PostsController.show");
+  Route.get("/:postId/username", "PostsController.getUsernameByPostId");
+  Route.post("/", "PostsController.store");
+  Route.put("/:id", "PostsController.update");
+  Route.delete("/:id", "PostsController.destroy");
+}).prefix("posts");

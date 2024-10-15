@@ -1,25 +1,33 @@
-import { DateTime } from 'luxon'
-import { BaseModel,hasMany,HasMany,column } from '@ioc:Adonis/Lucid/Orm'
+import { DateTime } from "luxon";
+import { BaseModel, column, belongsTo, BelongsTo } from "@ioc:Adonis/Lucid/Orm";
+import User from "App/Models/User"; // Make sure to import User model
 
 export default class Post extends BaseModel {
-  
   @column({ isPrimary: true })
-  public id: number
-  
+  public id: number;
+
   @column()
-  public blood_group:string
+  public userId: number;
+
   @column()
-  public location:string
+  public blood_group: string;
+
   @column()
-  public time:number
+  public location: string;
+
   @column()
-  public message:string
+  public time: number;
+
+  @column()
+  public message: string;
+
   @column.dateTime({ autoCreate: true })
-  public createdAt: DateTime
+  public createdAt: DateTime;
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
-  public updatedAt: DateTime
+  public updatedAt: DateTime;
 
-  @hasMany(() => Post)
-  public posts: HasMany<typeof Post>
+  // Define the belongsTo relationship with User
+  @belongsTo(() => User)
+  public user: BelongsTo<typeof User>;
 }

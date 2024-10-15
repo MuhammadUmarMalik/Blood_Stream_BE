@@ -7,7 +7,7 @@ export const Createvalidations = schema.create({
     rules.regex(/^\+\d{12}$/), // Custom form at for phone number (e.g., +923171600808)
   ]),
   name: schema.string({}, [rules.required()]),
-  gender: schema.string({}, [rules.required()]),
+  // gender: schema.string({}, [rules.required()]),
   blood_group: schema.string({}, [rules.required()]),
   address: schema.string({}, [rules.required()]),
   city: schema.string({}, [rules.required()]),
@@ -24,3 +24,4 @@ export const Updatevalidations = schema.create({
   //   rules.regex(/^\+\d{12}$/), // Custom format for phone number (e.g., +923171600808)
   // ]),
 });
+ 
